@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD API Tester | LUXE Edition</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="title">MongoDB CRUD API Tester</h1>
+            <p class="subtitle">Testing Endpoint: <span id="base-url">https://app-l9pwqf4vx-eakapaks-projects.vercel.app</span>/api/users</p>
+            <div class="message-box" id="message-box"></div>
+        </header>
+
+        <section class="api-section get-list-section">
+            <h2 class="method-title get-title"><i class="fas fa-list"></i> GET (List All Users)</h2>
+            <button id="get-all-btn" class="api-button get-button">GET /api/users</button>
+            <div class="result-area" id="get-list-result">
+                <h3>Result:</h3>
+                <pre id="get-list-data"></pre>
+            </div>
+        </section>
+
+        <section class="api-section post-section">
+            <h2 class="method-title post-title"><i class="fas fa-plus-circle"></i> POST (Create User)</h2>
+            <form id="post-form" class="api-form">
+                <div class="form-group">
+                    <label for="post-id">ID (Optional, Custom ID):</label>
+                    <input type="text" id="post-id" name="id" placeholder="Optional custom-id-123">
+                </div>
+                <div class="form-group">
+                    <label for="post-name">Name <span class="required">*</span>:</label>
+                    <input type="text" id="post-name" name="name" required placeholder="Alice Smith">
+                </div>
+                <div class="form-group">
+                    <label for="post-email">Email <span class="required">*</span>:</label>
+                    <input type="email" id="post-email" name="email" required placeholder="alice@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="post-role">Role:</label>
+                    <input type="text" id="post-role" name="role" placeholder="engineer">
+                </div>
+                <button type="submit" class="api-button post-button">POST /api/users</button>
+            </form>
+            <div class="result-area" id="post-result">
+                <h3>Result:</h3>
+                <pre id="post-data"></pre>
+            </div>
+        </section>
+
+        <section class="api-section get-one-section">
+            <h2 class="method-title get-title"><i class="fas fa-search"></i> GET (Get Single User)</h2>
+            <form id="get-one-form" class="api-form">
+                <div class="form-group">
+                    <label for="get-one-id">User ID:</label>
+                    <input type="text" id="get-one-id" name="id" required placeholder="Enter User ID (ObjectId or custom ID)">
+                </div>
+                <button type="submit" class="api-button get-button">GET /api/users/{id}</button>
+            </form>
+            <div class="result-area" id="get-one-result">
+                <h3>Result:</h3>
+                <pre id="get-one-data"></pre>
+            </div>
+        </section>
+
+        <section class="api-section put-section">
+            <h2 class="method-title put-title"><i class="fas fa-edit"></i> PUT (Update User)</h2>
+            <form id="put-form" class="api-form">
+                <div class="form-group">
+                    <label for="put-id">User ID to Update:</label>
+                    <input type="text" id="put-id" name="id" required placeholder="Enter User ID">
+                </div>
+                <div class="form-group">
+                    <label for="put-name">New Name (Optional):</label>
+                    <input type="text" id="put-name" name="name" placeholder="New Name">
+                </div>
+                <div class="form-group">
+                    <label for="put-email">New Email (Optional):</label>
+                    <input type="email" id="put-email" name="email" placeholder="new.email@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="put-role">New Role (Optional):</label>
+                    <input type="text" id="put-role" name="role" placeholder="senior engineer">
+                </div>
+                <button type="submit" class="api-button put-button">PUT /api/users/{id}</button>
+            </form>
+            <div class="result-area" id="put-result">
+                <h3>Result:</h3>
+                <pre id="put-data"></pre>
+            </div>
+        </section>
+
+        <section class="api-section delete-section">
+            <h2 class="method-title delete-title"><i class="fas fa-trash-alt"></i> DELETE (Delete User)</h2>
+            <form id="delete-form" class="api-form">
+                <div class="form-group">
+                    <label for="delete-id">User ID to Delete:</label>
+                    <input type="text" id="delete-id" name="id" required placeholder="Enter User ID">
+                </div>
+                <button type="submit" class="api-button delete-button">DELETE /api/users/{id}</button>
+            </form>
+            <div class="result-area" id="delete-result">
+                <h3>Result:</h3>
+                <pre id="delete-data"></pre>
+            </div>
+        </section>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
